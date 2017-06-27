@@ -1,4 +1,4 @@
-# admin-ui
+# ms-crm-admin-api
 
 > A Vue.js project
 
