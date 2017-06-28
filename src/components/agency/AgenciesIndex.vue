@@ -1,24 +1,30 @@
 <template>
   <div class='agencies-index-component'>
-    <agencies-new></agencies-new>
-
-    <ul>
-      <li v-for='{ name } in agencies'>{{ name }}</li>
-    </ul>
+    <div class='container'>
+      <div class='S12'>
+        <ul class='collection'>
+          <li class='collection-item avatar' v-for='{ name } in agencies'>
+            <img src='images/yuna.jpg' alt='' class='circle'>
+            <span class='title'>{{ name }}</span>
+            <a href='#!' class='secondary-content'><i class='material-icons'>grade</i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import AgenciesNew from '@/components/agency/AgenciesNew'
+// import Agency from '@/components/agency/Agency'
 import { mapGetters } from 'vuex'
 
 export default {
   computed: mapGetters(['agencies']),
   created () {
     this.$store.dispatch('index')
-  },
-  components: {
-    AgenciesNew
   }
+  // components: {
+  //   Agency
+  // }
 }
 </script>
