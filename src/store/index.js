@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import * as actions from './actions'
 import * as getters from './getters'
 import mutations from './mutations'
+import agencies from './modules/agencies'
 import users from './modules/users'
 
 Vue.use(Vuex)
@@ -14,6 +15,7 @@ export default new Vuex.Store({
   getters,
   mutations,
   modules: {
+    agencies,
     users
   },
   strict: debug
