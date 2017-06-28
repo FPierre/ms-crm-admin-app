@@ -2,7 +2,7 @@ import agencyService from '../../api/agency-service'
 import * as types from '../mutation-types'
 
 const state = {
-  all: {}
+  all: []
 }
 
 const getters = {

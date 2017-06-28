@@ -18,3 +18,11 @@ export default {
   }
 }
 </script>
+
+<style lang='scss'>
+@import '../node_modules/materialize-css/sass/components/color';
+
+body {
+  @extend .blue-grey, .lighten-5;
+}
+</style>

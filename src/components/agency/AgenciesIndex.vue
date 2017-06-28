@@ -1,8 +1,8 @@
 <template>
   <div class='agencies-index-component'>
     <div class='container'>
-      <div class='S12'>
-        <ul class='collection'>
+      <div class='s12'>
+        <ul class='collection' v-if='agencies.length'>
           <li class='collection-item avatar' v-for='{ name } in agencies'>
             <img src='images/yuna.jpg' alt='' class='circle'>
             <span class='title'>{{ name }}</span>
@@ -15,7 +15,6 @@
 </template>
 
 <script>
-// import Agency from '@/components/agency/Agency'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -23,8 +22,5 @@ export default {
   created () {
     this.$store.dispatch('index')
   }
-  // components: {
-  //   Agency
-  // }
 }
 </script>

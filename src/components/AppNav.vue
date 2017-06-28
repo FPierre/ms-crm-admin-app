@@ -1,6 +1,6 @@
 <template>
   <div class='app-nav-component'>
-    <nav class='nav-extended black'>
+    <nav class='nav-extended blue-grey darken-4'>
       <div class='nav-wrapper'>
         <a href='#!' class='brand-logo'>CRM</a>
 
