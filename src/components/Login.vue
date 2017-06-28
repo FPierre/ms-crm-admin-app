@@ -1,7 +1,5 @@
 <template>
   <div class="login-component">
-    <h1>Log In</h1>
-
     <input type='text' placeholder='name' v-model='name'>
     <input type='password' placeholder='password' v-model='password'>
     <button @click.prevent='login'>Login</button>

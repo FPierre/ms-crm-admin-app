@@ -11,12 +11,14 @@ export default new Router({
     {
       path: '/',
       name: 'Login',
-      component: Login
+      component: Login,
+      meta: { title: 'Login' }
     },
     {
       path: '/agencies',
       name: 'AgenciesIndex',
-      component: AgenciesIndex
+      component: AgenciesIndex,
+      meta: { title: 'Agencies' }
     }
   ]
 })

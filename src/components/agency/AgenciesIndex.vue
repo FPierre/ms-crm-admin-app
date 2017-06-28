@@ -1,7 +1,5 @@
 <template>
   <div class='agencies-index-component'>
-    <h1>Agencies</h1>
-
     <agencies-new></agencies-new>
 
     <ul>
