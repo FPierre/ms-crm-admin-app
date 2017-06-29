@@ -7,11 +7,13 @@
         <a href='#' data-activates='mobile-demo' class='button-collapse'><i class='material-icons'>menu</i></a>
 
         <ul class='right hide-on-med-and-down'>
+          <li><router-link :to='{ name: "Logs" }'>Logs</router-link></li>
           <li><router-link :to='{ name: "Login" }'>Login</router-link></li>
           <li><router-link :to='{ name: "AgenciesIndex" }'>Agencies</router-link></li>
         </ul>
 
         <ul class='side-nav' id='mobile-demo'>
+          <li><router-link :to='{ name: "Logs" }'>Logs</router-link></li>
           <li><router-link :to='{ name: "Login" }'>Login</router-link></li>
           <li><router-link :to='{ name: "AgenciesIndex" }'>Agencies</router-link></li>
         </ul>
