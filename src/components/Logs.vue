@@ -1,8 +1,14 @@
 <template>
   <div class='logs-component'>
-    <ul>
-      <li v-for='{ name, createdAt } in logs'>{{ name }} {{ createdAt }}</li>
-    </ul>
+    <div class='container'>
+      <div class='s12'>
+        <ul class='collection' v-if='logs.length'>
+          <li class='collection-item' v-for='{ event, createdAt } in logs'>
+            {{ event }} {{ createdAt }}
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
