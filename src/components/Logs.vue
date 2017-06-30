@@ -1,21 +1,19 @@
 <template>
-  <div class='logs-component'>
-    <div class='container'>
-      <div class='s12'>
-        <ul class='collection' v-if='logs.length'>
-          <li class='collection-item' v-for='{ event, createdAt } in logs'>
-            {{ event }} {{ createdAt }}
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <Table border :columns='columns6' :data='logs'></Table>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 
 export default {
+  data () {
+    return {
+      columns6: [
+        { title: 'event', key: 'event' },
+        { title: 'created at', key: 'createdAt' }
+      ]
+    }
+  },
   computed: mapGetters(['logs']),
   created () {
     this.$store.dispatch('update')
