@@ -6,18 +6,17 @@
 
         <div class='layout-nav'>
           <Menu-item name='1'>
-            <Icon type='ios-navigate'></Icon>
-            Menu 1
+            <router-link :to="{ name: 'AgenciesIndex' }">
+              <Icon type='ios-location'></Icon>
+              Agencies
+            </router-link>
           </Menu-item>
 
           <Menu-item name='2'>
-            <Icon type='ios-keypad'></Icon>
-            Menu 2
-          </Menu-item>
-
-          <Menu-item name='3'>
-            <Icon type='ios-analytics'></Icon>
-            Menu 3
+            <router-link :to="{ name: 'Logs' }">
+              <Icon type='ios-eye'></Icon>
+              Logs
+            </router-link>
           </Menu-item>
         </div>
       </Menu>
