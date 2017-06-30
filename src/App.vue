@@ -1,70 +1,63 @@
 <template>
   <div id='app'>
     <div class='layout'>
-      <Menu mode='horizontal' theme='dark' active-name='1'>
-        <div class='layout-logo'></div>
+      <Row type='flex'>
+        <i-col span='5' class='layout-menu-left'>
+          <Menu active-name='1-2' theme='dark' width='auto' :open-names="['1']">
+            <div class='layout-logo-left'></div>
 
-        <div class='layout-nav'>
-          <Menu-item name='1'>
-            <router-link :to="{ name: 'AgenciesIndex' }">
-              <Icon type='ios-location'></Icon>
-              Agencies
-            </router-link>
-          </Menu-item>
+            <Submenu name='1'>
+              <template slot='title'>
+                <Icon type='ios-location'></Icon>
+                Agencies
+              </template>
 
-          <Menu-item name='2'>
-            <router-link :to="{ name: 'Logs' }">
-              <Icon type='ios-eye'></Icon>
-              Logs
-            </router-link>
-          </Menu-item>
-        </div>
-      </Menu>
+              <Menu-item name='1-1'>
+                <router-link :to="{ name: 'AgenciesIndex' }">
+                  List
+                </router-link>
+              </Menu-item>
 
-      <Menu mode='horizontal' active-name='1'>
-        <div class='layout-assistant'>
-          <Menu-item name='1'>List</Menu-item>
-          <Menu-item name='2'>Search</Menu-item>
-          <Menu-item name='3'>Stats</Menu-item>
-        </div>
-      </Menu>
+              <Menu-item name='1-2'>Create</Menu-item>
+            </Submenu>
+          </Menu>
+        </i-col>
 
-      <div class='layout-content'>
-        <Row>
-          <i-col span='5'>
-            <Menu active-name='1-2' width='auto' :open-names="['1']">
-              <Submenu name='1'>
-                <template slot='title'>
-                  <Icon type='ios-navigate'></Icon>
-                  All agencies
-                </template>
+        <i-col span='19'>
+          <div class='layout-header'>
+            <Menu mode='horizontal' theme='dark' active-name='1'>
+              <div class='layout-logo'></div>
 
-                <Menu-item name='1-1'>Validated</Menu-item>
-                <Menu-item name='1-2'>Delisted</Menu-item>
-                <Menu-item name='1-3'>Creation</Menu-item>
-              </Submenu>
-
-              <Submenu name='2'>
-                <template slot='title'>
-                  <Icon type='ios-keypad'></Icon>
-                  导航 二
-                </template>
-
-                <Menu-item name='2-1'>选项 1</Menu-item>
-                <Menu-item name='2-2'>选项 2</Menu-item>
-              </Submenu>
+              <div class='layout-nav'>
+                <Menu-item name='1'>
+                  <router-link :to="{ name: 'Logs' }">
+                    <Icon type='ios-eye'></Icon>
+                    Logs
+                  </router-link>
+                </Menu-item>
+              </div>
             </Menu>
-          </i-col>
+          </div>
 
-          <i-col span='19'>
+          <div class='layout-breadcrumb'>
+            <Breadcrumb>
+              <Breadcrumb-item href='#'>首页</Breadcrumb-item>
+              <Breadcrumb-item href='#'>应用中心</Breadcrumb-item>
+              <Breadcrumb-item>某应用</Breadcrumb-item>
+            </Breadcrumb>
+          </div>
+
+          <div class='layout-content'>
             <div class='layout-content-main'>
               <router-view></router-view>
             </div>
-          </i-col>
-        </Row>
-      </div>
+          </div>
 
-      <app-footer></app-footer>
+          <div class='layout-copy'>
+            2017
+          </div>
+        </i-col>
+      </Row>
     </div>
   </div>
 </template>
@@ -86,51 +79,48 @@ export default {
 
 <style scoped>
 .layout {
-  background: #f5f7f9;
-  border: 1px solid #d7dde4;
-}
-
-.layout-logo {
-  background: #5b6270;
-  border-radius: 3px;
-  float: left;
-  height: 30px;
-  left: 20px;
-  position: relative;
-  top: 15px;
-  width: 100px;
-}
-
-.layout-nav {
-  margin: 0 auto;
-  width: 420px;
-}
-
-.layout-assistant {
-  height: inherit;
-  margin: 0 auto;
-  width: 300px;
+    border: 1px solid #d7dde4;
+    background: #f5f7f9;
+    position: relative;
 }
 
 .layout-breadcrumb {
-  padding: 10px 15px 0;
+    padding: 10px 15px 0;
 }
 
 .layout-content {
-  background: #fff;
-  border-radius: 4px;
-  margin: 15px;
-  min-height: 200px;
-  overflow: hidden;
+    min-height: 200px;
+    margin: 15px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 4px;
 }
 
 .layout-content-main {
-  padding: 10px;
+    padding: 10px;
 }
 
 .layout-copy {
-  color: #9ea7b4;
-  padding: 10px 0 20px;
-  text-align: center;
+    text-align: center;
+    padding: 10px 0 20px;
+    color: #9ea7b4;
+}
+
+.layout-menu-left {
+    background: #464c5b;
+}
+
+.layout-header {
+    height: 60px;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+}
+
+.layout-logo-left {
+    width: 90%;
+    height: 30px;
+    background: #5b6270;
+    border-radius: 3px;
+    margin: 15px auto;
 }
 </style>
