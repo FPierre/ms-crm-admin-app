@@ -23,8 +23,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
-      'jquery': resolve('node_modules/jquery/dist/jquery')
+      '@': resolve('src')
     }
   },
   module: {
@@ -65,14 +64,5 @@ module.exports = {
         }
       }
     ]
-  },
-  plugins: [
-    // https://github.com/Dogfalo/materialize/issues/4521
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.$': 'jquery',
-      'window.jQuery': 'jquery'
-    })
-  ]
+  }
 }

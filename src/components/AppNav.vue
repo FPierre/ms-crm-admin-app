@@ -1,48 +1,21 @@
 <template>
-  <div class='app-nav-component'>
-    <nav class='nav-extended blue-grey darken-4'>
-      <div class='nav-wrapper'>
-        <a href='#!' class='brand-logo'>CRM</a>
+  <Menu mode='horizontal' theme='dark' active-name='1'>
+    <div class='layout-logo'></div>
 
-        <a href='#' data-activates='mobile-demo' class='button-collapse'><i class='material-icons'>menu</i></a>
+    <div class='layout-nav'>
+      <Menu-item name='1'>
+        <router-link :to='{ name: "AgenciesIndex" }'>
+          <Icon type='ios-location'></Icon>
+          Agencies
+        </router-link>
+      </Menu-item>
 
-        <ul class='right hide-on-med-and-down'>
-          <li><router-link :to='{ name: "Logs" }'>Logs</router-link></li>
-          <li><router-link :to='{ name: "Login" }'>Login</router-link></li>
-          <li><router-link :to='{ name: "AgenciesIndex" }'>Agencies</router-link></li>
-        </ul>
-
-        <ul class='side-nav' id='mobile-demo'>
-          <li><router-link :to='{ name: "Logs" }'>Logs</router-link></li>
-          <li><router-link :to='{ name: "Login" }'>Login</router-link></li>
-          <li><router-link :to='{ name: "AgenciesIndex" }'>Agencies</router-link></li>
-        </ul>
-      </div>
-
-      <div class='nav-content'>
-        <span class='nav-title'>{{ $route.meta.title }}</span>
-
-        <a class='btn-floating btn-large halfway-fab waves-effect waves-light teal' href='#modal1'>
-          <i class='material-icons'>add</i>
-        </a>
-      </div>
-    </nav>
-
-    <div id='modal1' class='modal bottom-sheet'>
-      <router-view name='modal'></router-view>
+      <Menu-item name='2'>
+        <router-link :to='{ name: "Logs" }'>
+          <Icon type='ios-analytics'></Icon>
+          Logs
+        </router-link>
+      </Menu-item>
     </div>
-  </div>
+  </Menu>
 </template>
-
-<script>
-import $ from 'jquery'
-
-export default {
-  mounted () {
-    $(document).ready(() => {
-      $('.button-collapse').sideNav({ closeOnClick: true, draggable: true })
-      $('.modal').modal()
-    })
-  }
-}
-</script>

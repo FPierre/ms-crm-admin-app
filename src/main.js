@@ -3,14 +3,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
+import iView from 'iview'
 import App from './App'
 import store from './store'
 import router from './router'
 
-Vue.use(VueResource).use(Vuex)
-
-// Vue.http.options.xhr = { withCredentials: true }
-// Vue.http.options.emulateJSON = true
+Vue.use(VueResource).use(Vuex).use(iView)
 
 Vue.config.productionTip = false
 
