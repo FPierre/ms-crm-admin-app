@@ -1,23 +1,20 @@
 <template>
-  <div class='agencies-index-component'>
-    <div class='container'>
-      <div class='s12'>
-        <ul class='collection' v-if='agencies.length'>
-          <li class='collection-item avatar' v-for='{ name } in agencies'>
-            <img src='images/yuna.jpg' alt='' class='circle'>
-            <span class='title'>{{ name }}</span>
-            <a href='#!' class='secondary-content'><i class='material-icons'>grade</i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <Table :columns='columns1' :data='agencies'></Table>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 
 export default {
+  data () {
+    return {
+      columns1: [
+        { title: 'id', key: 'id' },
+        { title: 'name', key: 'name' },
+        { title: 'commercial status', key: 'commercialStatus' }
+      ]
+    }
+  },
   computed: mapGetters(['agencies']),
   created () {
     this.$store.dispatch('index')
