@@ -3,12 +3,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
-import iView from 'iview'
 import App from './App'
 import store from './store'
 import router from './router'
 
-Vue.use(VueResource).use(Vuex).use(iView)
+Vue.use(VueResource).use(Vuex)
 
 Vue.config.productionTip = false
 
