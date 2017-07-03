@@ -45,7 +45,7 @@
         <li>
           <a>
             <span class='icon is-small'><i class='fa fa-search'></i></span>
-            <span>List</span>
+            <span>Search</span>
           </a>
         </li>
         <li>
