@@ -1,6 +1,6 @@
 <template>
   <div class='app-nav-component'>
-    <nav class='nav has-shadow'>
+    <nav class='nav'>
       <div class='container'>
         <div class='nav-left'>
           <a class='nav-item'>
@@ -33,5 +33,28 @@
         </div>
       </div>
     </nav>
+
+    <div class='tabs is-centered'>
+      <ul>
+        <li class='is-active'>
+          <a>
+            <span class='icon is-small'><i class='fa fa-list'></i></span>
+            <span>List</span>
+          </a>
+        </li>
+        <li>
+          <a>
+            <span class='icon is-small'><i class='fa fa-search'></i></span>
+            <span>List</span>
+          </a>
+        </li>
+        <li>
+          <a>
+            <span class='icon is-small'><i class='fa fa-plus'></i></span>
+            <span>New</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
