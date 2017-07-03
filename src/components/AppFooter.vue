@@ -1,3 +1,9 @@
 <template>
-  <div class='layout-copy'>2017</div>
+  <div class='app-footer-component'>
+    <footer class='footer'>
+      <div class='container'>
+        <div class='content has-text-centered'></div>
+      </div>
+    </footer>
+  </div>
 </template>
