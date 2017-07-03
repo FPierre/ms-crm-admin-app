@@ -12,7 +12,6 @@ import AppNav from '@/components/AppNav'
 
 export default {
   name: 'app',
-  props: ['title'],
   components: {
     AppNav,
     AppFooter
@@ -22,5 +21,4 @@ export default {
 
 <style lang='scss'>
 @import 'node_modules/bulma/bulma.sass';
-
 </style>

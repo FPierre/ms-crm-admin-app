@@ -3,8 +3,9 @@ import Router from 'vue-router'
 import Logs from '@/components/Logs'
 import Login from '@/components/Login'
 import AgenciesIndex from '@/components/agency/AgenciesIndex'
+import UsersIndex from '@/components/user/UsersIndex'
 import UsersShow from '@/components/user/UsersShow'
-import AgenciesNew from '@/components/agency/AgenciesNew'
+// import AgenciesNew from '@/components/agency/AgenciesNew'
 
 Vue.use(Router)
 
@@ -19,18 +20,22 @@ export default new Router({
     {
       path: '/agencies',
       name: 'AgenciesIndex',
-      components: { default: AgenciesIndex, modal: AgenciesNew }
+      component: AgenciesIndex
+    },
+    {
+      path: '/users',
+      name: 'UsersIndex',
+      component: UsersIndex
     },
     {
       path: '/users/:id',
       name: 'UsersShow',
-      components: UsersShow,
-      props: true
+      component: UsersShow
     },
     {
       path: '/logs',
       name: 'Logs',
-      components: { default: Logs }
+      component: Logs
     }
   ]
 })

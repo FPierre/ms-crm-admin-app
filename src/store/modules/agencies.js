@@ -12,7 +12,7 @@ const getters = {
 const actions = {
   index ({ commit, state }) {
     agencyService.index(
-      (agencies) => commit(types.INDEX_SUCCESS, { agencies }),
+      agencies => commit(types.INDEX_SUCCESS, { agencies }),
       () => commit(types.INDEX_FAILURE)
     )
   },
@@ -20,7 +20,7 @@ const actions = {
   create ({ commit, state }, agency) {
     agencyService.create(
       agency,
-      (agency) => commit(types.CREATE_SUCCESS, { agency }),
+      agency => commit(types.CREATE_SUCCESS, { agency }),
       () => commit(types.CREATE_FAILURE)
     )
   }

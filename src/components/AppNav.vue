@@ -8,6 +8,7 @@
           </a>
 
           <router-link class='nav-item is-hidden-mobile is-active' :to='{ name: "AgenciesIndex" }'>Home</router-link>
+          <router-link class='nav-item is-hidden-mobile' :to='{ name: "UsersIndex" }'>Users</router-link>
           <router-link class='nav-item is-hidden-mobile' :to='{ name: "AgenciesIndex" }'>Agencies</router-link>
           <router-link class='nav-item is-hidden-mobile' :to='{ name: "Logs" }'>Logs</router-link>
         </div>
@@ -20,6 +21,7 @@
 
         <div class='nav-right nav-menu'>
           <router-link class='nav-item is-hidden-tablet is-active' :to='{ name: "AgenciesIndex" }'>Home</router-link>
+          <router-link class='nav-item is-hidden-mobile' :to='{ name: "UsersIndex" }'>Users</router-link>
           <router-link class='nav-item is-hidden-tablet' :to='{ name: "AgenciesIndex" }'>Agencies</router-link>
           <router-link class='nav-item is-hidden-tablet' :to='{ name: "Logs" }'>Logs</router-link>
 

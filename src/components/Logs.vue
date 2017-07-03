@@ -29,6 +29,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: mapGetters(['logs']),
+  // TODO: kill client when componend is destroyed
   created () {
     this.$store.dispatch('update')
   }
