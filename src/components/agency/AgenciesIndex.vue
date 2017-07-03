@@ -5,17 +5,19 @@
         <table class='table is-bordered is-striped'>
           <thead>
             <tr>
-              <th><abbr title='Identifiant'>ID</abbr></th>
               <th>Name</th>
+              <th>Activities</th>
               <th><abbr title='Commercial Status'>CS</abbr></th>
+              <th>Responsible</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr v-for='{ id, name, commercialStatus } in agencies'>
-              <th>{{ id }}</th>
-              <td>{{ name }}</td>
+            <tr v-for='{ name, activities, commercialStatus, responsible } in agencies'>
+              <th>{{ name }}</th>
+              <td>{{ activities }}</td>
               <td>{{ commercialStatus }}</td>
+              <td>{{ responsible.name }}</td>
             </tr>
           </tbody>
         </table>
