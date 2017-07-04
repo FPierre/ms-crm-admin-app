@@ -3,11 +3,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
+import * as VueGoogleMaps from 'vue2-google-maps'
 import App from './App'
 import store from './store'
 import router from './router'
 
-Vue.use(VueResource).use(Vuex)
+Vue.use(VueResource)
+   .use(Vuex)
+   .use(VueGoogleMaps, {
+     load: { key: 'AIzaSyDD8SfGX5Ebz5dsLke_ZjNhP1U6ePL8NOQ' }
+   })
 
 Vue.config.productionTip = false
 
