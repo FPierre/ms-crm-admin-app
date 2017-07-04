@@ -9,15 +9,19 @@
               <th>Activities</th>
               <th><abbr title='Commercial Status'>CS</abbr></th>
               <th>Responsible</th>
+              <th>Actions</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr v-for='{ name, activities, commercialStatus, responsible } in agencies'>
+            <tr v-for='{ id, name, activities, commercialStatus, responsible } in agencies'>
               <th>{{ name }}</th>
               <td>{{ activities }}</td>
               <td>{{ commercialStatus }}</td>
               <td>{{ responsible.name }}</td>
+              <td>
+                <router-link :to="{ name: 'AgenciesShow', params: { id }}">Show</router-link>
+              </td>
             </tr>
           </tbody>
         </table>

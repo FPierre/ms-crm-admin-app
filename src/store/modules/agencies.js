@@ -1,10 +1,12 @@
 import agencyService from '../../api/agency-service'
 
 const state = {
-  all: []
+  all: [],
+  current: {}
 }
 
 const getters = {
+  current: state => state.current,
   agencies: state => state.all
 }
 
@@ -13,6 +15,14 @@ const actions = {
     agencyService.index(
       agencies => commit('indexSuccess', { agencies }),
       () => commit('indexFailure')
+    )
+  },
+
+  show ({ commit, state }, { id }) {
+    agencyService.show(
+      id,
+      agency => commit('showSuccess', { agency }),
+      () => commit('showFailure')
     )
   },
 
@@ -32,6 +42,14 @@ const mutations = {
 
   indexFailure (state) {
     console.log('agencies index failure')
+  },
+
+  showSuccess (state, { agency }) {
+    state.current = agency
+  },
+
+  showFailure (state) {
+    console.log('agencies show failure')
   },
 
   createSuccess (state, { agency }) {
