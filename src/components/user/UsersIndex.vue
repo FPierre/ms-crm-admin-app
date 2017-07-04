@@ -5,13 +5,15 @@
         <table class='table is-bordered is-striped'>
           <thead>
             <tr>
-              <th>Name</th>
+              <th>First name</th>
+              <th>Last name</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr v-for='{ name } in users'>
-              <th>{{ name }}</th>
+            <tr v-for='{ firstName, lastName } in users'>
+              <td>{{ firstName }}</td>
+              <td>{{ lastName }}</td>
             </tr>
           </tbody>
         </table>
