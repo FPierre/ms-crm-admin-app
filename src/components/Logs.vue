@@ -31,7 +31,6 @@ export default {
   computed: mapGetters({
     logs: 'logs/logs'
   }),
-  // TODO: kill client when componend is destroyed
   created () {
     this.$store.dispatch('logs/update')
   }
