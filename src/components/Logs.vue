@@ -28,10 +28,12 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  computed: mapGetters(['logs']),
+  computed: mapGetters({
+    logs: 'logs/logs'
+  }),
   // TODO: kill client when componend is destroyed
   created () {
-    this.$store.dispatch('update')
+    this.$store.dispatch('logs/update')
   }
 }
 </script>

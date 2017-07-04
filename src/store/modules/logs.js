@@ -1,5 +1,4 @@
 import logService from '../../api/log-service'
-import * as types from '../mutation-types'
 
 const state = {
   all: []
@@ -12,24 +11,24 @@ const getters = {
 const actions = {
   update ({ commit, state }) {
     logService.update(
-      (logs) => commit(types.UPDATE_SUCCESS, { logs }),
-      () => commit(types.UPDATE_FAILURE)
+      (logs) => commit('updateSuccess', { logs }),
+      () => commit('updateFailure')
     )
   }
 }
 
 const mutations = {
-  [types.UPDATE_SUCCESS] (state, { logs }) {
-    console.log('UPDATE_SUCESS')
+  updateSuccess (state, { logs }) {
     state.all = logs
   },
 
-  [types.UPDATE_FAILURE] (state) {
-    console.log('UPDATE_FAILURE')
+  updateFailure (state) {
+    console.log('log update failure')
   }
 }
 
 export default {
+  namespaced: true,
   state,
   getters,
   actions,
