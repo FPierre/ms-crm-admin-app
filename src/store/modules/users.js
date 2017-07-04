@@ -1,5 +1,4 @@
 import userService from '../../api/user-service'
-import * as types from '../mutation-types'
 
 const state = {
   all: [],
@@ -14,39 +13,41 @@ const getters = {
 const actions = {
   index ({ commit, state }) {
     userService.index(
-      users => commit(types.INDEX_SUCCESS, { users }),
-      () => commit(types.INDEX_FAILURE)
+      users => commit('indexSuccess', { users }),
+      () => commit('indexFailure')
     )
   },
 
   login ({ commit, state }, userCredentials) {
     userService.login(
       userCredentials,
-      user => commit(types.LOGIN_SUCCESS, { user }),
-      () => commit(types.LOGIN_FAILURE)
+      user => commit('loginSuccess', { user }),
+      () => commit('loginFailure')
     )
   }
 }
 
 const mutations = {
-  [types.INDEX_SUCCESS] (state, { users }) {
+  indexSuccess (state, { users }) {
+    console.log('index success')
     state.all = users
   },
 
-  [types.INDEX_FAILURE] (state) {
-    console.log('index fail')
+  indexFailure (state) {
+    console.log('index failure')
   },
 
-  [types.LOGIN_SUCCESS] (state, { user }) {
+  loginSuccess (state, { user }) {
     state.user = user
   },
 
-  [types.LOGIN_FAILURE] (state) {
-    console.log('login fail')
+  loginFailure (state) {
+    console.log('login failure')
   }
 }
 
 export default {
+  namespaced: true,
   state,
   getters,
   actions,

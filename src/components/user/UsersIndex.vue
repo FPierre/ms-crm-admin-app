@@ -24,9 +24,11 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  computed: mapGetters(['users']),
+  computed: mapGetters({
+    users: 'users/users'
+  }),
   created () {
-    this.$store.dispatch('index')
+    this.$store.dispatch('users/index')
   }
 }
 </script>
