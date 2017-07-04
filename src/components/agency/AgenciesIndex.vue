@@ -30,9 +30,11 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  computed: mapGetters(['agencies']),
+  computed: mapGetters({
+    agencies: 'agencies/agencies'
+  }),
   created () {
-    this.$store.dispatch('index')
+    this.$store.dispatch('agencies/index')
   }
 }
 </script>
