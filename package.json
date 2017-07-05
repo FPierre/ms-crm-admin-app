@@ -1,7 +1,7 @@
 {
-  "name": "admin-ui",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
+  "name": "ms-crm-app",
+  "version": "0.0.1",
+  "description": "Main MicroService CRM application",
   "author": "pflauder@gmail.com",
   "private": true,
   "scripts": {
