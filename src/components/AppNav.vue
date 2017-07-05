@@ -7,10 +7,10 @@
             <img src='http://bulma.io/images/bulma-logo.png' alt='Bulma logo'>
           </a>
 
-          <router-link class='nav-item is-hidden-mobile is-active' :to='{ name: "AgenciesIndex" }'>Home</router-link>
-          <router-link class='nav-item is-hidden-mobile' :to='{ name: "UsersIndex" }'>Users</router-link>
-          <router-link class='nav-item is-hidden-mobile' :to='{ name: "AgenciesIndex" }'>Agencies</router-link>
-          <router-link class='nav-item is-hidden-mobile' :to='{ name: "Logs" }'>Logs</router-link>
+          <router-link class='nav-item is-hidden-mobile is-active' :to="{ name: 'AgenciesIndex' }">Home</router-link>
+          <router-link class='nav-item is-hidden-mobile' :to="{ name: 'UsersIndex' }">Users</router-link>
+          <router-link class='nav-item is-hidden-mobile' :to="{ name: 'AgenciesIndex' }">Agencies</router-link>
+          <router-link class='nav-item is-hidden-mobile' :to="{ name: 'Logs' }">Logs</router-link>
         </div>
 
         <span class='nav-toggle'>
@@ -20,10 +20,10 @@
         </span>
 
         <div class='nav-right nav-menu'>
-          <router-link class='nav-item is-hidden-tablet is-active' :to='{ name: "AgenciesIndex" }'>Home</router-link>
-          <router-link class='nav-item is-hidden-mobile' :to='{ name: "UsersIndex" }'>Users</router-link>
-          <router-link class='nav-item is-hidden-tablet' :to='{ name: "AgenciesIndex" }'>Agencies</router-link>
-          <router-link class='nav-item is-hidden-tablet' :to='{ name: "Logs" }'>Logs</router-link>
+          <router-link class='nav-item is-hidden-tablet is-active' :to="{ name: 'AgenciesIndex' }">Home</router-link>
+          <router-link class='nav-item is-hidden-tablet' :to="{ name: 'UsersIndex' }">Users</router-link>
+          <router-link class='nav-item is-hidden-tablet' :to="{ name: 'AgenciesIndex' }">Agencies</router-link>
+          <router-link class='nav-item is-hidden-tablet' :to="{ name: 'Logs' }">Logs</router-link>
 
           <a class='nav-item'>
             <figure class='image is-16x16' style='margin-right: 8px;'>
@@ -39,10 +39,10 @@
     <div class='tabs is-centered'>
       <ul>
         <li class='is-active'>
-          <a>
+          <router-link :to="{ name: 'AgenciesIndex' }">
             <span class='icon is-small'><i class='fa fa-list'></i></span>
             <span>List</span>
-          </a>
+          </router-link>
         </li>
         <li>
           <a>
@@ -51,10 +51,10 @@
           </a>
         </li>
         <li>
-          <a>
+          <router-link :to="{ name: 'AgenciesNew' }">
             <span class='icon is-small'><i class='fa fa-plus'></i></span>
             <span>New</span>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>
