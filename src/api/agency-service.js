@@ -1,20 +1,25 @@
 import Vue from 'vue'
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource)
+
+const resource = Vue.resource('http://localhost:4000/agencies{/id}')
 
 export default {
   index (cb, errorCb) {
-    Vue.http.get('http://localhost:4000/agencies').then(response => {
+    resource.query().then(response => {
       cb(response.body)
     }, response => errorCb())
   },
 
   show (id, cb, errorCb) {
-    Vue.http.get('http://localhost:4000/agencies/show', { id }).then(response => {
+    resource.get({ id: id }).then(response => {
       cb(response.body)
     }, response => errorCb())
   },
 
   create (agency, cb, errorCb) {
-    Vue.http.post('http://localhost:4000/agencies/create', { agency }).then(response => {
+    resource.save({ agency }).then(response => {
       cb(response.body)
     }, response => errorCb())
   }
