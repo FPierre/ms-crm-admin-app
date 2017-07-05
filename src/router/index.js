@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Logs from '@/components/Logs'
 import Login from '@/components/Login'
 import AgenciesIndex from '@/components/agency/AgenciesIndex'
-// import AgenciesNew from '@/components/agency/AgenciesNew'
+import AgenciesNew from '@/components/agency/AgenciesNew'
 import AgenciesShow from '@/components/agency/AgenciesShow'
 import UsersIndex from '@/components/user/UsersIndex'
 import UsersShow from '@/components/user/UsersShow'
@@ -22,6 +22,11 @@ export default new Router({
       path: '/agencies',
       name: 'AgenciesIndex',
       component: AgenciesIndex
+    },
+    {
+      path: '/agencies/new',
+      name: 'AgenciesNew',
+      component: AgenciesNew
     },
     {
       path: '/agencies/:id',
