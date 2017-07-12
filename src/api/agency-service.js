@@ -7,20 +7,20 @@ const resource = Vue.resource('http://localhost:4000/agencies{/id}')
 
 export default {
   index (cb, errorCb) {
-    resource.query().then(response => {
-      cb(response.body)
-    }, response => errorCb())
+    resource.query()
+      .then(res => cb(res.body))
+      .catch(() => errorCb())
   },
 
   show (id, cb, errorCb) {
-    resource.get({ id: id }).then(response => {
-      cb(response.body)
-    }, response => errorCb())
+    resource.get({ id })
+      .then(res => cb(res.body))
+      .catch(() => errorCb())
   },
 
   create (agency, cb, errorCb) {
-    resource.save({ agency }).then(response => {
-      cb(response.body)
-    }, response => errorCb())
+    resource.save({ agency })
+      .then(res => cb(res.body))
+      .catch(() => errorCb())
   }
 }
