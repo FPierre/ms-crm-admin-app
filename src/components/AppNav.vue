@@ -15,9 +15,9 @@
 
       <div id='navMenuExample' class='navbar-menu'>
         <div class='navbar-start'>
-          <router-link class='navbar-item is-hidden-mobile is-active'>
+          <a class='navbar-item is-hidden-mobile is-active'>
             Home
-          </router-link>
+          </a>
 
           <div class='navbar-item has-dropdown is-hoverable'>
             <router-link :to="{ name: 'AgenciesIndex' }" class='navbar-link is-active'>
