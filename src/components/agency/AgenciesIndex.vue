@@ -9,19 +9,25 @@
               <th>Activities</th>
               <th><abbr title='Commercial Status'>CS</abbr></th>
               <th>Responsible</th>
-              <th>Actions</th>
+              <th>Created at</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr v-for='{ id, name, activities, commercialStatus, responsible } in agencies'>
-              <th>{{ name }}</th>
+            <tr v-for='{ _id, name, activities, commercialStatus, responsible, createdAt } in agencies'>
+              <td>
+                <router-link :to="{ name: 'AgenciesShow', params: { id: _id }}">
+                  {{ name }}
+                </router-link>
+              </td>
               <td>{{ activities }}</td>
               <td>{{ commercialStatus }}</td>
-              <td>{{ responsible.name }}</td>
               <td>
-                <router-link :to="{ name: 'AgenciesShow', params: { id }}">Show</router-link>
-              </td>
+                <router-link :to="{ name: 'UsersShow', params: { id: responsible.id }}">
+                  {{ responsible.firstName }} {{ responsible.lastName }}
+                </router-link>
+             </td>
+             <td>{{ createdAt }}</td>
             </tr>
           </tbody>
         </table>
