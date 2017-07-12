@@ -1,6 +1,11 @@
 <template>
   <div class='agencies-show-component'>
-    <gmap-map :center='center' :zoom='6' style='height: 20vh' :options='options'></gmap-map>
+    <div class='container'>
+      <h1 class='title'>{{ agency.name }}</h1>
+      <h2 class='subtitle'>{{ address }}</h2>
+
+      <gmap-map :center='center' :zoom='6' style='height: 300px' :options='options'></gmap-map>
+    </div>
   </div>
 </template>
 
@@ -19,6 +24,9 @@ export default {
     }),
     center () {
       return { lat: this.agency.lat, lng: this.agency.lng }
+    },
+    address () {
+      return `${this.agency.street}`
     }
   },
   created () {
