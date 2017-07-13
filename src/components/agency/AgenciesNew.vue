@@ -1,45 +1,34 @@
 <template>
-  <div class='agency-new-component'>
+  <div class='agencies-new-component'>
     <div class='columns'>
       <div class='column'>
-        <input type='file' id='file-input'>
-        <p id='status'>Please select a file</p>
-        <img id='preview' src='/images/default.png'>
-
         <div class='field'>
           <label class='label'>Name</label>
+
           <p class='control'>
-            <input type='text' class='input' placeholder='Account name'>
+            <input type='text' class='input' placeholder='Name' v-model='name'>
           </p>
         </div>
 
         <div class='field'>
-          <label class='label'>Activities</label>
+          <label class='label'>Phone</label>
+
           <p class='control'>
-            <span class='select'>
-              <select>
-                <option>French fries stand</option>
-                <option>Candy floss stand</option>
-              </select>
-            </span>
+            <input type='text' class='input' placeholder='Phone' v-model='phone'>
           </p>
         </div>
 
         <div class='field'>
-          <label class='label'>Responsible</label>
+          <label class='label'>Street</label>
+
           <p class='control'>
-            <span class='select'>
-              <select>
-                <option>User 1</option>
-                <option>User 2</option>
-              </select>
-            </span>
+            <input type='text' class='input' placeholder='Street' v-model='street'>
           </p>
         </div>
 
         <div class='field is-grouped'>
           <p class='control'>
-            <button class='button is-primary'>Submit</button>
+            <button class='button is-primary' @click='create'>Submit</button>
           </p>
 
           <p class='control'>
@@ -56,14 +45,24 @@ export default {
   data () {
     return {
       name: null,
-      status: null,
-      activities: [],
-      responsibleId: null
+      phone: null,
+      street: null
     }
   },
   methods: {
     create () {
-      this.$store.dispatch('create', { name: this.name })
+      const agency = {
+        name: this.name,
+        phone: this.phone,
+        street: this.street,
+        commercialStatus: 'inactive',
+        activities: 'frenchFriesStand',
+        _authorId: '5963e30a57e53e5ef6857439',
+        _responsibleId: '5963e30a57e53e5ef6857439',
+        _cityId: 1
+      }
+
+      this.$store.dispatch('agencies/create', { agency })
     }
   }
 }
