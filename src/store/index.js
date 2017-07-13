@@ -4,6 +4,7 @@ import * as actions from './actions'
 import * as getters from './getters'
 import mutations from './mutations'
 import agencies from './modules/agencies'
+import leads from './modules/leads'
 import logs from './modules/logs'
 import users from './modules/users'
 
@@ -17,6 +18,7 @@ export default new Vuex.Store({
   mutations,
   modules: {
     agencies,
+    leads,
     logs,
     users
   },
