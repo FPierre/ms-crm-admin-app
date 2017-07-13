@@ -19,10 +19,10 @@
         </div>
 
         <div class='field'>
-          <label class='label'>Street</label>
+          <label class='label'>Address</label>
 
           <p class='control'>
-            <input type='text' class='input' placeholder='Street' v-model='street'>
+            <input type='search' id='address' class='input' placeholder='Address'>
           </p>
         </div>
 
@@ -41,13 +41,45 @@
 </template>
 
 <script>
+import places from 'places.js'
+
 export default {
   data () {
     return {
       name: null,
       phone: null,
-      street: null
+      country: null,
+      city: null,
+      zipCode: null,
+      street: null,
+      lat: null,
+      lng: null,
+      _algoliaPlaceId: null
     }
+  },
+  mounted () {
+    const placesAutocomplete = places({
+      container: document.querySelector('#address'),
+      type: 'address',
+      aroundLatLngViaIP: false,
+      countries: ['FR']
+    })
+
+    placesAutocomplete.on('change', e => {
+      // console.log(e.suggestion)
+
+      this.city = e.suggestion.city
+      this.country = e.suggestion.country
+      this.street = e.suggestion.name
+      this.zipCode = e.suggestion.postcode
+      this.lat = e.suggestion.latlng.lat
+      this.lng = e.suggestion.latlng.lng
+      this._algoliaPlaceId = e.suggestion.hit.objectID
+    })
+
+    placesAutocomplete.on('clear', () => {
+      // this.address = null
+    })
   },
   methods: {
     create () {
