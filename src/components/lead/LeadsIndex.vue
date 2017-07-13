@@ -11,10 +11,10 @@
           </thead>
 
           <tbody>
-            <tr v-for='{ _id, firsName, lastName, createdAt } in leads'>
+            <tr v-for='{ _id, gender, firstName, lastName, createdAt } in leads'>
               <td>
                 <router-link :to="{ name: 'LeadsShow', params: { id: _id }}">
-                  {{ firstName }} {{ lastName }}
+                  {{ gender }} {{ firstName }} {{ lastName }}
                 </router-link>
               </td>
              <td>{{ createdAt }}</td>
