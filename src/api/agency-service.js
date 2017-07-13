@@ -18,8 +18,8 @@ export default {
       .catch(() => errorCb())
   },
 
-  create (agency, cb, errorCb) {
-    resource.save({ agency })
+  create ({ agency, user }, cb, errorCb) {
+    resource.save({ agency, user })
       .then(res => cb(res.body))
       .catch(() => errorCb())
   }

@@ -26,9 +26,9 @@ const actions = {
     )
   },
 
-  create ({ commit, state }, agency) {
+  create ({ commit, state }, { agency, user }) {
     agencyService.create(
-      agency,
+      { agency, user },
       agency => commit('createSuccess', { agency }),
       () => commit('createFailure')
     )
