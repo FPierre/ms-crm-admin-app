@@ -5,6 +5,8 @@ import Login from '@/components/Login'
 import AgenciesIndex from '@/components/agency/AgenciesIndex'
 import AgenciesShow from '@/components/agency/AgenciesShow'
 import AgenciesNew from '@/components/agency/AgenciesNew'
+import LeadsIndex from '@/components/lead/LeadsIndex'
+import LeadsShow from '@/components/lead/LeadsShow'
 import UsersIndex from '@/components/user/UsersIndex'
 import UsersShow from '@/components/user/UsersShow'
 
@@ -31,6 +33,16 @@ export default new Router({
       path: '/agencies/new',
       name: 'AgenciesNew',
       component: AgenciesNew
+    },
+    {
+      path: '/leads',
+      name: 'LeadsIndex',
+      component: LeadsIndex
+    },
+    {
+      path: '/leads/:id',
+      name: 'LeadsShow',
+      component: LeadsShow
     },
     {
       path: '/users',
