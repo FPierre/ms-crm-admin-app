@@ -25,14 +25,14 @@ export default new Router({
       component: AgenciesIndex
     },
     {
-      path: '/agencies/:id',
-      name: 'AgenciesShow',
-      component: AgenciesShow
-    },
-    {
       path: '/agencies/new',
       name: 'AgenciesNew',
       component: AgenciesNew
+    },
+    {
+      path: '/agencies/:id',
+      name: 'AgenciesShow',
+      component: AgenciesShow
     },
     {
       path: '/leads',
