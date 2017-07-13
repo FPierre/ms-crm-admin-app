@@ -5,15 +5,19 @@
         <table class='table is-bordered is-striped'>
           <thead>
             <tr>
-              <th>First name</th>
-              <th>Last name</th>
+              <th>Identity</th>
+              <th>Created at</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr v-for='{ firstName, lastName } in users'>
-              <td>{{ firstName }}</td>
-              <td>{{ lastName }}</td>
+            <tr v-for='{ _id, firstName, lastName, createdAt } in users'>
+              <td>
+                <router-link :to="{ name: 'UsersShow', params: { id: _id }}">
+                  {{ firstName }} {{ lastName }}
+                </router-link>
+              </td>
+              <td>{{ createdAt }}</td>
             </tr>
           </tbody>
         </table>
