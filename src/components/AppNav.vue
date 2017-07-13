@@ -15,26 +15,20 @@
 
       <div id='navMenuExample' class='navbar-menu'>
         <div class='navbar-start'>
-          <a class='navbar-item is-hidden-mobile is-active'>
+          <a class='navbar-item is-hidden-mobile'>
             Home
           </a>
 
           <div class='navbar-item has-dropdown is-hoverable'>
-            <router-link :to="{ name: 'AgenciesIndex' }" class='navbar-link is-active'>
-              Agencies
-            </router-link>
+            <a class="navbar-link">CRM</a>
 
             <div class='navbar-dropdown'>
-              <router-link :to="{ name: 'AgenciesIndex' }" class='navbar-item is-active'>
-                List
+              <router-link :to="{ name: 'LeadsIndex' }" class='navbar-item'>
+                Leads
               </router-link>
 
-              <router-link :to="{ name: 'AgenciesNew' }" class='navbar-item'>
-                New
-              </router-link>
-
-              <router-link :to="{ name: 'AgenciesNew' }" class='navbar-item'>
-                Search
+              <router-link :to="{ name: 'AgenciesIndex' }" class='navbar-item'>
+                Agencies
               </router-link>
 
               <hr class='navbar-divider'>
