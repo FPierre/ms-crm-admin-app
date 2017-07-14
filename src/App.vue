@@ -21,4 +21,8 @@ export default {
 
 <style lang='scss'>
 @import 'node_modules/bulma/bulma.sass';
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
 </style>
