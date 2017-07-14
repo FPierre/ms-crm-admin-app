@@ -5,6 +5,7 @@ import Login from '@/components/Login'
 import AgenciesIndex from '@/components/agency/AgenciesIndex'
 import AgenciesShow from '@/components/agency/AgenciesShow'
 import AgenciesNew from '@/components/agency/AgenciesNew'
+import AgenciesSearch from '@/components/agency/AgenciesSearch'
 import LeadsIndex from '@/components/lead/LeadsIndex'
 import LeadsShow from '@/components/lead/LeadsShow'
 import UsersIndex from '@/components/user/UsersIndex'
@@ -33,6 +34,11 @@ export default new Router({
       path: '/agencies/:id',
       name: 'AgenciesShow',
       component: AgenciesShow
+    },
+    {
+      path: '/agencies/search',
+      name: 'AgenciesSearch',
+      component: AgenciesSearch
     },
     {
       path: '/leads',

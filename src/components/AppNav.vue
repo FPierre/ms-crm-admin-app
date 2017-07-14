@@ -54,10 +54,10 @@
           </router-link>
         </li>
         <li>
-          <a>
+          <router-link :to="{ name: 'AgenciesSearch' }">
             <span class='icon is-small'><i class='fa fa-search'></i></span>
             <span>Search</span>
-          </a>
+          </router-link>
         </li>
         <li>
           <router-link :to="{ name: 'AgenciesNew' }">
