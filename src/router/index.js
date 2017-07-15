@@ -1,69 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Logs from '@/components/Logs'
+
+import agenciesRoutes from '@/router/agencies'
+import leadsRoutes from '@/router/leads'
+import logsRoutes from '@/router/logs'
+import usersRoutes from '@/router/users'
+
 import Login from '@/components/Login'
-import AgenciesIndex from '@/components/agency/AgenciesIndex'
-import AgenciesShow from '@/components/agency/AgenciesShow'
-import AgenciesNew from '@/components/agency/AgenciesNew'
-import AgenciesSearch from '@/components/agency/AgenciesSearch'
-import LeadsIndex from '@/components/lead/LeadsIndex'
-import LeadsShow from '@/components/lead/LeadsShow'
-import UsersIndex from '@/components/user/UsersIndex'
-import UsersShow from '@/components/user/UsersShow'
 
 Vue.use(Router)
 
-// TODO: nested routes
 export default new Router({
   routes: [
-    { path: '/',
+    ...agenciesRoutes,
+    ...leadsRoutes,
+    ...logsRoutes,
+    ...usersRoutes,
+    {
+      path: '/',
       name: 'Login',
       component: Login
-    },
-    {
-      path: '/agencies',
-      name: 'AgenciesIndex',
-      component: AgenciesIndex
-    },
-    {
-      path: '/agencies/new',
-      name: 'AgenciesNew',
-      component: AgenciesNew
-    },
-    {
-      path: '/agencies/:id',
-      name: 'AgenciesShow',
-      component: AgenciesShow
-    },
-    {
-      path: '/agencies/search',
-      name: 'AgenciesSearch',
-      component: AgenciesSearch
-    },
-    {
-      path: '/leads',
-      name: 'LeadsIndex',
-      component: LeadsIndex
-    },
-    {
-      path: '/leads/:id',
-      name: 'LeadsShow',
-      component: LeadsShow
-    },
-    {
-      path: '/users',
-      name: 'UsersIndex',
-      component: UsersIndex
-    },
-    {
-      path: '/users/:id',
-      name: 'UsersShow',
-      component: UsersShow
-    },
-    {
-      path: '/logs',
-      name: 'Logs',
-      component: Logs
     }
   ]
 })
