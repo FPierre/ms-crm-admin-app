@@ -1,4 +1,4 @@
-import LogsIndex from '@/components/Logs'
+import LogsIndex from '@/components/log/LogsIndex'
 
 export default [
   {

@@ -42,7 +42,7 @@
       </div>
 
       <router-link class='nav-item is-hidden-mobile' :to="{ name: 'UsersIndex' }">Users</router-link>
-      <router-link class='nav-item is-hidden-mobile' :to="{ name: 'Logs' }">Logs</router-link>
+      <router-link class='nav-item is-hidden-mobile' :to="{ name: 'LogsIndex' }">Logs</router-link>
     </nav>
 
     <div class='tabs is-centered'>
