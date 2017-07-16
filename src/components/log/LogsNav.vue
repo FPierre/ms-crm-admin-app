@@ -1,9 +1,9 @@
 <template>
-  <div class='log-nav-component'>
+  <div class='logs-nav-component'>
     <div class='tabs is-centered'>
       <ul>
         <li class='is-active'>
-          <router-link :to="{ name: 'AgenciesIndex' }">
+          <router-link :to="{ name: 'LogsIndex' }">
             <span class='icon is-small'><i class='fa fa-list'></i></span>
             <span>List</span>
           </router-link>
