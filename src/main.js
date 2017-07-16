@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
+import VueTimeago from 'vue-timeago'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import App from './App'
 import store from '@/store'
@@ -12,6 +13,12 @@ import router from '@/router'
 Vue
   .use(VueResource)
   .use(Vuex)
+  .use(VueTimeago, {
+    locale: 'en-US',
+    locales: {
+      'en-US': require('vue-timeago/locales/en-US.json')
+    }
+  })
   .use(VueGoogleMaps, {
     load: { key: 'AIzaSyDD8SfGX5Ebz5dsLke_ZjNhP1U6ePL8NOQ' }
   })

@@ -18,7 +18,9 @@
             <td>{{ model }}</td>
             <td>{{ note }}</td>
             <td>{{ user }}</td>
-            <td>{{ createdAt }}</td>
+            <td>
+              <timeago :since='createdAt'></timeago>
+            </td>
           </tr>
         </tbody>
       </table>

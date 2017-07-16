@@ -40,7 +40,9 @@
                 {{ gender }} {{ firstName }} {{ lastName }}
               </router-link>
             </td>
-           <td>{{ createdAt }}</td>
+           <td>
+             <timeago :since='createdAt'></timeago>
+           </td>
           </tr>
         </tbody>
       </table>

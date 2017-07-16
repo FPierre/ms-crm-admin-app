@@ -6318,6 +6318,10 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.3.tgz#22787de4e37ebd9339b74223bc467d1adee30545"
 
+vue-timeago@^3.3.5:
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/vue-timeago/-/vue-timeago-3.3.5.tgz#5af549aa9a48bdfc769895d32f457f2e365946aa"
+
 vue2-google-maps@^0.7.9:
   version "0.7.9"
   resolved "https://registry.yarnpkg.com/vue2-google-maps/-/vue2-google-maps-0.7.9.tgz#9969611ebeca1cfa63b12bc85df1d4bb73cf24f2"
