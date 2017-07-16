@@ -11,8 +11,8 @@ const custom = {
 const resource = Vue.resource('http://localhost:4000/users{/id}', {}, custom)
 
 export default {
-  index (cb, errorCb) {
-    resource.query()
+  index ({ page }, cb, errorCb) {
+    resource.query({ page })
       .then(res => cb(res.body))
       .catch(() => errorCb())
   },

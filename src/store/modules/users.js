@@ -3,18 +3,23 @@ import userService from '@/api/user-service'
 
 const state = {
   all: [],
+  total: 0,
+  pages: 0,
   current: {}
 }
 
 const getters = {
-  current: state => state.current,
-  users: state => state.all
+  users: state => state.all,
+  total: state => state.total,
+  pages: state => state.pages,
+  current: state => state.current
 }
 
 const actions = {
-  index ({ commit, state }) {
+  index ({ commit, state }, { page }) {
     userService.index(
-      users => commit('indexSuccess', { users }),
+      { page },
+      ({ docs, total, pages }) => commit('indexSuccess', { docs, total, pages }),
       () => commit('indexFailure')
     )
   },
@@ -47,9 +52,10 @@ const actions = {
 }
 
 const mutations = {
-  indexSuccess (state, { users }) {
-    console.log('index success')
-    state.all = users
+  indexSuccess (state, { docs, total, pages }) {
+    state.all = docs
+    state.total = total
+    state.pages = pages
   },
 
   indexFailure (state) {
