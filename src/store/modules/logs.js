@@ -1,29 +1,33 @@
 import logService from '../../api/log-service'
 
 const state = {
-  all: []
+  all: [],
+  connected: false
 }
 
 const getters = {
-  logs: state => state.all
+  logs: state => state.all,
+  connected: state => state.connected
 }
 
 const actions = {
-  update ({ commit, state }) {
-    logService.update(
-      (logs) => commit('updateSuccess', { logs }),
-      () => commit('updateFailure')
+  stream ({ commit, state }) {
+    logService.stream(
+      logs => commit('streamSuccess', { logs }),
+      () => commit('streamFailure')
     )
   }
 }
 
 const mutations = {
-  updateSuccess (state, { logs }) {
+  streamSuccess (state, { logs }) {
     state.all = logs
+    state.connected = true
   },
 
-  updateFailure (state) {
+  streamFailure (state) {
     console.log('log update failure')
+    state.connected = false
   }
 }
 
