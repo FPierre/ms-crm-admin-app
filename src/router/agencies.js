@@ -3,10 +3,18 @@ import AgenciesShow from '@/components/agency/AgenciesShow'
 import AgenciesEdit from '@/components/agency/AgenciesEdit'
 import AgenciesNew from '@/components/agency/AgenciesNew'
 import AgenciesSearch from '@/components/agency/AgenciesSearch'
+
+import AppHeader from '@/components/AppHeader'
 import AgenciesNav from '@/components/agency/AgenciesNav'
+import AppFooter from '@/components/AppFooter'
 
 function components (main) {
-  return { default: main, nav: AgenciesNav }
+  return {
+    default: main,
+    header: AppHeader,
+    nav: AgenciesNav,
+    footer: AppFooter
+  }
 }
 
 export default [
@@ -14,26 +22,25 @@ export default [
     path: '/agencies',
     name: 'AgenciesIndex',
     components: components(AgenciesIndex)
-    // component: AgenciesIndex
   },
   {
     path: '/agencies/:id',
     name: 'AgenciesShow',
-    components: AgenciesShow
+    components: components(AgenciesShow)
   },
   {
     path: '/agencies/:id/edit',
     name: 'AgenciesEdit',
-    component: AgenciesEdit
+    components: components(AgenciesEdit)
   },
   {
     path: '/agencies/new',
     name: 'AgenciesNew',
-    component: AgenciesNew
+    components: components(AgenciesNew)
   },
   {
     path: '/agencies/search',
     name: 'AgenciesSearch',
-    component: AgenciesSearch
+    components: components(AgenciesSearch)
   }
 ]

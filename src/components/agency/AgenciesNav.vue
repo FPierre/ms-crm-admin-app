@@ -1,5 +1,5 @@
 <template>
-  <div class='agency-nav-component'>
+  <div class='agencies-nav-component'>
     <div class='tabs is-centered'>
       <ul>
         <li class='is-active'>
