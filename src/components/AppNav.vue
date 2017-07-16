@@ -2,9 +2,7 @@
   <div class='app-nav-component'>
     <nav class='navbar is-transparent'>
       <div class='navbar-brand'>
-        <a class='navbar-item' href='http://bulma.io'>
-          <img src='http://bulma.io/images/bulma-logo.png' alt='Bulma: a modern CSS framework based on Flexbox' width='112' height='28'>
-        </a>
+        <a class='navbar-item' href='https://github.com/FPierre'>MS CRM</a>
 
         <div class='navbar-burger burger' data-target='navMenuExample'>
           <span></span>
