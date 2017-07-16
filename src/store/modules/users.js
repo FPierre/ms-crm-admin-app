@@ -1,4 +1,5 @@
-import userService from '../../api/user-service'
+import userService from '@/api/user-service'
+// import auth from '@/auth'
 
 const state = {
   all: [],
@@ -26,10 +27,20 @@ const actions = {
     )
   },
 
-  login ({ commit, state }, userCredentials) {
+  create ({ commit, state }, { user }) {
+    userService.create(
+      user,
+      user => commit('createSuccess', { user }),
+      () => commit('createFailure')
+    )
+  },
+
+  login ({ commit, state }, { credentials }) {
+    // auth.login(credentials, 'secretquote')
+
     userService.login(
-      userCredentials,
-      user => commit('loginSuccess', { user }),
+      credentials,
+      ({ tokenId, tokenAccess }) => commit('loginSuccess', { tokenId, tokenAccess }),
       () => commit('loginFailure')
     )
   }
@@ -53,12 +64,21 @@ const mutations = {
     console.log('users show failure')
   },
 
-  loginSuccess (state, { user }) {
-    state.user = user
+  createSuccess (state, { user }) {
+    console.log('users create success')
+  },
+
+  createFailure (state) {
+    console.log('users create failure')
+  },
+
+  loginSuccess (state, { tokenId, tokenAccess }) {
+    localStorage.setItem('tokenId', tokenId)
+    localStorage.setItem('tokenAccess', tokenAccess)
   },
 
   loginFailure (state) {
-    console.log('login failure')
+    console.log('users login failure')
   }
 }
 

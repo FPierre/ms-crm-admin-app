@@ -23,7 +23,7 @@
               <td>{{ activities }}</td>
               <td>{{ commercialStatus }}</td>
               <td>
-                <router-link :to="{ name: 'UsersShow', params: { id: responsible.id }}">
+                <router-link :to="{ name: 'UsersShow', params: { id: responsible._id }}">
                   {{ responsible.firstName }} {{ responsible.lastName }}
                 </router-link>
              </td>

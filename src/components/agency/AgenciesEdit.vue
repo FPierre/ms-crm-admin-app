@@ -1,5 +1,5 @@
 <template>
-  <div class='agencies-new-component'>
+  <div class='agencies-edit-component'>
     <div class='columns'>
       <div class='column'>
         <div class='field'>
@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import places from 'places.js'
 
 export default {
@@ -56,6 +57,12 @@ export default {
       lng: null,
       _algoliaPlaceId: null
     }
+  },
+  computed: mapGetters({
+    agency: 'agencies/current'
+  }),
+  created () {
+    this.$store.dispatch('agencies/show', { id: this.$params.id })
   },
   mounted () {
     const placesAutocomplete = places({

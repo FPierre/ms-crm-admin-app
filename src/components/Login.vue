@@ -1,8 +1,26 @@
 <template>
-  <div class="login-component">
-    <input type='text' placeholder='name' v-model='name'>
-    <input type='password' placeholder='password' v-model='password'>
-    <button @click.prevent='login'>Login</button>
+  <div class='login-component'>
+    <div class='field'>
+      <label class='label'>Name</label>
+
+      <p class='control'>
+        <input type='text' class='input' placeholder='Email' v-model='email'>
+      </p>
+    </div>
+
+    <div class='field'>
+      <label class='label'>Password</label>
+
+      <p class='control'>
+        <input type='password' class='input' placeholder='Password' v-model='password'>
+      </p>
+    </div>
+
+    <div class='field'>
+      <p class='control'>
+        <button class='button is-primary' @click='login'>Login</button>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -10,13 +28,18 @@
 export default {
   data () {
     return {
-      name: null,
+      email: null,
       password: null
     }
   },
   methods: {
     login () {
-      this.$store.dispatch('login', { name: this.name, password: this.password })
+      const credentials = {
+        email: this.email,
+        password: this.password
+      }
+
+      this.$store.dispatch('users/login', { credentials })
     }
   }
 }

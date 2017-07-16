@@ -1,14 +1,20 @@
 import AgenciesIndex from '@/components/agency/AgenciesIndex'
-import AgenciesNew from '@/components/agency/AgenciesNew'
 import AgenciesShow from '@/components/agency/AgenciesShow'
 import AgenciesEdit from '@/components/agency/AgenciesEdit'
+import AgenciesNew from '@/components/agency/AgenciesNew'
 import AgenciesSearch from '@/components/agency/AgenciesSearch'
+import AgenciesNav from '@/components/agency/AgenciesNav'
+
+function components (main) {
+  return { default: main, nav: AgenciesNav }
+}
 
 export default [
   {
     path: '/agencies',
     name: 'AgenciesIndex',
-    component: AgenciesIndex
+    components: components(AgenciesIndex)
+    // component: AgenciesIndex
   },
   {
     path: '/agencies/:id',

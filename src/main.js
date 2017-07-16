@@ -5,14 +5,19 @@ import Vuex from 'vuex'
 import VueResource from 'vue-resource'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import App from './App'
-import store from './store'
-import router from './router'
+import store from '@/store'
+import router from '@/router'
+// import auth from '@/auth'
 
-Vue.use(VueResource)
-   .use(Vuex)
-   .use(VueGoogleMaps, {
-     load: { key: 'AIzaSyDD8SfGX5Ebz5dsLke_ZjNhP1U6ePL8NOQ' }
-   })
+Vue
+  .use(VueResource)
+  .use(Vuex)
+  .use(VueGoogleMaps, {
+    load: { key: 'AIzaSyDD8SfGX5Ebz5dsLke_ZjNhP1U6ePL8NOQ' }
+  })
+
+// Vue.http.headers.common['Authorization'] = auth.getAuthHeader()
+Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk'
 
 Vue.config.productionTip = false
 
