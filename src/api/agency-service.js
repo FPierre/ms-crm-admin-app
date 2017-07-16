@@ -6,13 +6,13 @@ Vue.use(VueResource)
 const resource = Vue.resource('http://localhost:4000/agencies{/id}')
 
 export default {
-  index (cb, errorCb) {
-    resource.query()
+  index ({ page }, cb, errorCb) {
+    resource.query({ page })
       .then(res => cb(res.body))
       .catch(() => errorCb())
   },
 
-  show (id, cb, errorCb) {
+  show ({ id }, cb, errorCb) {
     resource.get({ id })
       .then(res => cb(res.body))
       .catch(() => errorCb())

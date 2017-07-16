@@ -20,10 +20,12 @@ export default new Router({
       path: '/login',
       name: 'Login',
       components: { default: Login }
-    },
+    }
+    /*,
     {
       path: '*',
       redirect: '/login'
     }
+    */
   ]
 })
