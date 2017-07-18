@@ -45,10 +45,11 @@
             </td>
             <td>{{ activities }}</td>
             <td>{{ commercialStatus }}</td>
-            <td>
-              <router-link :to="{ name: 'UsersShow', params: { id: responsible._id }}">
-                {{ responsible.firstName }} {{ responsible.lastName }}
+            <td class='has-text-centered'>
+              <router-link :to="{ name: 'UsersShow', params: { id: _responsibleId }}" v-if='responsible'>
+                  {{ responsible.firstName }} {{ responsible.lastName }}
               </router-link>
+              <spinner type='bubbles' color='#00d1b2' v-else></spinner>
             </td>
             <td>
               <timeago :since='createdAt'></timeago>
@@ -62,6 +63,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Spinner from 'vue-loading-template'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -87,6 +89,7 @@ export default {
     }
   },
   components: {
+    Spinner,
     Pagination
   }
 }
