@@ -14,12 +14,14 @@ export default {
     // socket.on('connect', () => console.log('connected'))
     console.log('index')
 
-    // setInterval(() => {
-    socket.emit('index', {}, data => {
+    socket.emit('index', {}, (err, data) => {
       console.log('index', data)
+      if (err) {
+        errorCb()
+      }
+
       cb(data)
     })
-    // }, 2000)
 
     /*
     socket.on('disconnect', err => {
