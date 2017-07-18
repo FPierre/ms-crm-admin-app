@@ -2,7 +2,13 @@
   <div class='app-footer-component'>
     <footer class='footer'>
       <div class='container'>
-        <div class='content has-text-centered'></div>
+        <div class='content has-text-centered'>
+          <p>
+            <a class='icon' href='https://github.com/FPierre'>
+              <i class='fa fa-github'></i>
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   </div>
