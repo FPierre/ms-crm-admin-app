@@ -51,8 +51,9 @@
               </router-link>
               <spinner type='bubbles' color='#00d1b2' v-else></spinner>
             </td>
-            <td>
-              <timeago :since='createdAt'></timeago>
+            <td @mouseenter='mouseEnterCreatedAt' @mouseleave='mouseLeaveCreatedAt'>
+              <template v-if='hoveredCreatedAt'>{{ humanizedCreatedAt(createdAt) }}</template>
+              <timeago :since='createdAt' v-else></timeago>
             </td>
           </tr>
         </tbody>
@@ -67,6 +68,11 @@ import Spinner from 'vue-loading-template'
 import Pagination from '@/components/Pagination'
 
 export default {
+  data () {
+    return {
+      hoveredCreatedAt: false
+    }
+  },
   computed: {
     ...mapGetters({
       agencies: 'agencies/agencies',
@@ -86,6 +92,16 @@ export default {
     },
     fetch () {
       this.$store.dispatch('agencies/index', { page: this.page })
+    },
+    mouseEnterCreatedAt () {
+      this.hoveredCreatedAt = true
+    },
+    mouseLeaveCreatedAt () {
+      this.hoveredCreatedAt = false
+    },
+    humanizedCreatedAt (date) {
+      const d = new Date(date)
+      return `${d.getMonth()}/${d.getDate()}/${d.getFullYear()} ${d.getHours()}h${d.getMinutes()}`
     }
   },
   components: {
