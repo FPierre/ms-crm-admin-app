@@ -6,41 +6,40 @@ import io from 'socket.io-client'
 Vue.use(VueResource)
 
 const resource = Vue.resource('http://localhost:4000/agencies{/id}')
+const socket = io.connect('http://localhost:5554/agencies')
 
 export default {
   index ({ page }, cb, errorCb) {
-    const socket = io.connect('http://localhost:5554/agencies')
-
-    // socket.on('connect', () => console.log('connected'))
     console.log('index')
 
-    socket.emit('index', {}, (err, data) => {
-      console.log('index', data)
+    socket.emit('index', { page }, (err, paginatedAgencies) => {
+      console.log('index', paginatedAgencies)
+
       if (err) {
         errorCb()
       }
 
-      cb(data)
+      cb(paginatedAgencies)
     })
 
     /*
-    socket.on('disconnect', err => {
-      console.log(err)
-      errorCb()
-    })
-    */
-
-    /*
-    resource.query({ page })
-      .then(res => cb(res.body))
-      .catch(() => errorCb())
+    socket.on('connect', () => console.log('connected'))
+    socket.on('disconnect', err => errorCb(err))
     */
   },
 
   show ({ id }, cb, errorCb) {
-    resource.get({ id })
-      .then(res => cb(res.body))
-      .catch(() => errorCb())
+    console.log('show')
+
+    socket.emit('show', { id }, (err, agency) => {
+      console.log('show', agency)
+
+      if (err) {
+        errorCb(err)
+      }
+
+      cb(agency)
+    })
   },
 
   create ({ agency, user }, cb, errorCb) {
