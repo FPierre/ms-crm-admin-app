@@ -55,7 +55,7 @@
                     <div class='media-content'>
                       <div class='content'>
                         <h1 class='title'>MS CRM</h1>
-                        <h2 class='subtitle'>A full productivity centered CRM</h2>
+                        <h2 class='subtitle'>Productivity-centric CRM</h2>
                       </div>
                     </div>
                   </article>
