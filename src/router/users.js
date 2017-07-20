@@ -22,13 +22,13 @@ export default [
     components: components(UsersIndex)
   },
   {
-    path: '/users/:id',
-    name: 'UsersShow',
-    components: components(UsersShow)
-  },
-  {
     path: '/users/new',
     name: 'UsersNew',
     component: components(UsersNew)
+  },
+  {
+    path: '/users/:id',
+    name: 'UsersShow',
+    components: components(UsersShow)
   }
 ]
