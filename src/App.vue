@@ -1,12 +1,8 @@
 <template>
   <div id='app'>
     <router-view name='header'></router-view>
-    <router-view name='nav'></router-view>
-
-    <main>
-      <router-view></router-view>
-    </main>
-
+    <router-view class='view-nav' name='nav'></router-view>
+    <router-view></router-view>
     <router-view name='footer'></router-view>
   </div>
 </template>
@@ -24,7 +20,7 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-main {
-  margin-top: 2rem;
+.view-nav {
+  margin-bottom: 2rem;
 }
 </style>
