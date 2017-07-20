@@ -9,10 +9,10 @@ const resource = Vue.resource('http://localhost:4000/agencies{/id}')
 const socket = io.connect('http://localhost:5554/agencies')
 
 export default {
-  index ({ page }, cb, errorCb) {
-    console.log('index')
+  index ({ page, query }, cb, errorCb) {
+    console.log('index', page, query)
 
-    socket.emit('index', { page }, (err, paginatedAgencies) => {
+    socket.emit('index', { page, query }, (err, paginatedAgencies) => {
       console.log('index', paginatedAgencies)
 
       if (err) {

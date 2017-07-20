@@ -10,11 +10,11 @@
           <div class='level-item'>
             <div class='field has-addons'>
               <p class='control'>
-                <input type='text' class='input' placeholder='Find an agency'>
+                <input type='text' class='input' placeholder='Search by name' v-model='searchQuery'>
               </p>
 
               <p class='control'>
-                <button class='button'>Search</button>
+                <button class='button' @click='search'>Search</button>
               </p>
             </div>
           </div>
@@ -68,6 +68,11 @@ import Spinner from 'vue-loading-template'
 import Pagination from '@/components/Pagination'
 
 export default {
+  data () {
+    return {
+      searchQuery: null
+    }
+  },
   computed: {
     ...mapGetters({
       agencies: 'agencies/agencies',
@@ -87,6 +92,10 @@ export default {
     },
     fetch () {
       this.$store.dispatch('agencies/index', { page: this.page })
+    },
+    search () {
+      console.log('search')
+      this.$store.dispatch('agencies/index', { query: this.searchQuery })
     },
     humanizedCreatedAt (date) {
       const d = new Date(date)
