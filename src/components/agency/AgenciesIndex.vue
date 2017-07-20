@@ -49,7 +49,7 @@
               <router-link :to="{ name: 'UsersShow', params: { id: _responsibleId }}" v-if='responsible'>
                   {{ responsible.firstName }} {{ responsible.lastName }}
               </router-link>
-              <spinner type='bubbles' color='#00d1b2' v-else></spinner>
+              <vue-loader type='bubbles' color='#00d1b2' v-else></vue-loader>
             </td>
             <td>
               {{ humanizedCreatedAt(createdAt) }}
@@ -64,7 +64,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Spinner from 'vue-loading-template'
+import VueLoader from 'vue-loading-template'
 import Pagination from '@/components/Pagination'
 
 export default {
@@ -103,7 +103,7 @@ export default {
     }
   },
   components: {
-    Spinner,
+    VueLoader,
     Pagination
   }
 }
