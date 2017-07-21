@@ -8,8 +8,18 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
-  name: 'app'
+  name: 'app',
+  created () {
+    const token = localStorage.getItem('socketToken')
+
+    if (token) {
+      this.$store.commit('authentication/storeToken', token)
+    }
+  },
+  methods: mapMutations(['authentication/storeToken'])
 }
 </script>
 
