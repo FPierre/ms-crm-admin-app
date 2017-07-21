@@ -32,6 +32,10 @@
                       <button class='button' @click='login'>Login</button>
                     </p>
                   </div>
+
+                  <button class='button is-warning' @click='test'>Test</button>
+                  <button class='button is-danger' @click='reset'>Reset token</button>
+                  <p>token: {{ token }}</p>
                 </div>
               </div>
             </div>
@@ -77,14 +81,28 @@ export default {
       password: null
     }
   },
+  computed: {
+    token () {
+      return this.$store.state.authentication.token
+    }
+  },
+  mounted () {
+    // Use authentication/isAuthenticated instead
+    if (this.$store.state.authentication.token) {
+      this.$router.push({ name: 'AgenciesIndex' })
+    }
+  },
   methods: {
     login () {
-      const credentials = {
-        email: this.email,
-        password: this.password
-      }
+      this.$store.dispatch('authentication/signIn', { email: this.email, password: this.password })
+    },
 
-      this.$store.dispatch('users/login', { credentials })
+    test () {
+      this.$store.dispatch('authentication/test')
+    },
+
+    reset () {
+      this.$store.commit('authentication/clearToken')
     }
   }
 }
