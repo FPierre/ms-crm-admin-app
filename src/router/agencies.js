@@ -24,16 +24,6 @@ export default [
     components: components(AgenciesIndex)
   },
   {
-    path: '/agencies/:id',
-    name: 'AgenciesShow',
-    components: components(AgenciesShow)
-  },
-  {
-    path: '/agencies/:id/edit',
-    name: 'AgenciesEdit',
-    components: components(AgenciesEdit)
-  },
-  {
     path: '/agencies/new',
     name: 'AgenciesNew',
     components: components(AgenciesNew)
@@ -42,5 +32,15 @@ export default [
     path: '/agencies/search',
     name: 'AgenciesSearch',
     components: components(AgenciesSearch)
+  },
+  {
+    path: '/agencies/:id',
+    name: 'AgenciesShow',
+    components: components(AgenciesShow)
+  },
+  {
+    path: '/agencies/:id/edit',
+    name: 'AgenciesEdit',
+    components: components(AgenciesEdit)
   }
 ]

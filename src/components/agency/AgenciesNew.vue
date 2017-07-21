@@ -5,16 +5,40 @@
         <div class='field'>
           <label class='label'>Name</label>
 
-          <p class='control'>
-            <input type='text' class='input' placeholder='Name' v-model='name'>
+          <div class='control has-icons-left has-icons-right'>
+            <input type='text' class='input' :class='{ "is-danger": errors.has("ame") }' name='ame' placeholder='Name' v-model='name' v-validate="'required|max:255'">
+
+            <span class='icon is-small is-left'>
+              <i class='fa fa-envelope'></i>
+            </span>
+
+            <span class='icon is-small is-right' v-show='errors.has("ame")'>
+              <i class='fa fa-times'></i>
+            </span>
+          </div>
+
+          <p class='help is-danger'>
+            {{ errors.first('ame') }}
           </p>
         </div>
 
         <div class='field'>
           <label class='label'>Phone</label>
 
-          <p class='control'>
-            <input type='text' class='input' placeholder='Phone' v-model='phone'>
+          <div class='control has-icons-left has-icons-right'>
+            <input type='text' class='input' :class='{ "is-danger": errors.has("phone") }' name='phone' placeholder='Phone' v-model='phone' v-validate="'required|max:12'">
+
+            <span class='icon is-small is-left'>
+              <i class='fa fa-phone'></i>
+            </span>
+
+            <span class='icon is-small is-right' v-show='errors.has("phone")'>
+              <i class='fa fa-times'></i>
+            </span>
+          </div>
+
+          <p class='help is-danger'>
+            {{ errors.first('phone') }}
           </p>
         </div>
 

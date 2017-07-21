@@ -26,6 +26,18 @@
 
       <router-link class='nav-item is-hidden-mobile' :to="{ name: 'UsersIndex' }">Users</router-link>
       <router-link class='nav-item is-hidden-mobile' :to="{ name: 'LogsIndex' }">Logs</router-link>
+      <a class='nav-item is-hidden-mobile' @click='signOut'>Sign out</a>
     </nav>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    signOut () {
+      this.$store.commit('authentication/clearToken')
+      this.$router.push({ name: 'Login' })
+    }
+  }
+}
+</script>

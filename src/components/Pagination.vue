@@ -1,6 +1,6 @@
 <template>
   <div class='pagination-component'>
-    <nav class='pagination'>
+    <nav class='pagination' v-if='pages > 1'>
       <a class='pagination-previous' :disabled='isFirstPage' @©lick='navigate(1)'>Previous</a>
       <a class='pagination-next' :disabled='isLastPage' @click='navigate(pages)'>Next page</a>
 

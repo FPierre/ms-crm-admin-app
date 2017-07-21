@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
+import VeeValidate from 'vee-validate'
 import VueTimeago from 'vue-timeago'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import App from './App'
@@ -11,16 +12,17 @@ import router from '@/router'
 // import auth from '@/auth'
 
 Vue
-  .use(VueResource)
   .use(Vuex)
+  .use(VueResource)
+  .use(VeeValidate)
+  .use(VueGoogleMaps, {
+    load: { key: 'AIzaSyDD8SfGX5Ebz5dsLke_ZjNhP1U6ePL8NOQ' }
+  })
   .use(VueTimeago, {
     locale: 'en-US',
     locales: {
       'en-US': require('vue-timeago/locales/en-US.json')
     }
-  })
-  .use(VueGoogleMaps, {
-    load: { key: 'AIzaSyDD8SfGX5Ebz5dsLke_ZjNhP1U6ePL8NOQ' }
   })
 
 // Vue.http.headers.common['Authorization'] = auth.getAuthHeader()

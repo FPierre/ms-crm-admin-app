@@ -10,11 +10,11 @@
           <div class='level-item'>
             <div class='field has-addons'>
               <p class='control'>
-                <input type='text' class='input' placeholder='Find an agency'>
+                <input type='text' class='input' placeholder='Search by name' v-model='searchQuery'>
               </p>
 
               <p class='control'>
-                <button class='button'>Search</button>
+                <button class='button' @click='search'>Search</button>
               </p>
             </div>
           </div>
@@ -45,13 +45,15 @@
             </td>
             <td>{{ activities }}</td>
             <td>{{ commercialStatus }}</td>
-            <td>
-              <router-link :to="{ name: 'UsersShow', params: { id: responsible._id }}">
-                {{ responsible.firstName }} {{ responsible.lastName }}
+            <td class='has-text-centered'>
+              <router-link :to="{ name: 'UsersShow', params: { id: _responsibleId }}" v-if='responsible'>
+                  {{ responsible.firstName }} {{ responsible.lastName }}
               </router-link>
+              <vue-loader type='bubbles' color='#00d1b2' v-else></vue-loader>
             </td>
             <td>
-              <timeago :since='createdAt'></timeago>
+              {{ humanizedCreatedAt(createdAt) }}
+              <small>(<timeago :since='createdAt'></timeago>)</small>
             </td>
           </tr>
         </tbody>
@@ -62,9 +64,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import VueLoader from 'vue-loading-template'
 import Pagination from '@/components/Pagination'
 
 export default {
+  data () {
+    return {
+      searchQuery: null
+    }
+  },
   computed: {
     ...mapGetters({
       agencies: 'agencies/agencies',
@@ -84,9 +92,18 @@ export default {
     },
     fetch () {
       this.$store.dispatch('agencies/index', { page: this.page })
+    },
+    search () {
+      console.log('search')
+      this.$store.dispatch('agencies/index', { query: this.searchQuery })
+    },
+    humanizedCreatedAt (date) {
+      const d = new Date(date)
+      return `${d.getMonth()}/${d.getDate()}/${d.getFullYear()} ${d.getHours()}h${d.getMinutes()}`
     }
   },
   components: {
+    VueLoader,
     Pagination
   }
 }

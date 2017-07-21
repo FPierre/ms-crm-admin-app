@@ -17,9 +17,9 @@ const getters = {
 }
 
 const actions = {
-  index ({ commit, state }, { page }) {
+  index ({ commit, state }, { page, query }) {
     agencyService.index(
-      { page },
+      { page, query },
       ({ docs, total, pages }) => commit('indexSuccess', { docs, total, pages }),
       () => commit('indexFailure')
     )

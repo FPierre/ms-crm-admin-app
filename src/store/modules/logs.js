@@ -26,7 +26,7 @@ const mutations = {
   },
 
   streamFailure (state) {
-    console.log('log update failure')
+    console.log('log stream failure')
     state.connected = false
   }
 }
