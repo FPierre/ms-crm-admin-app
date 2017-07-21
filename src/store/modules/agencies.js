@@ -4,14 +4,16 @@ const state = {
   all: [],
   total: 0,
   pages: 0,
-  current: {}
+  current: {},
+  h: {}
 }
 
 const getters = {
   agencies: state => state.all,
   total: state => state.total,
   pages: state => state.pages,
-  current: state => state.current
+  current: state => state.current,
+  history: state => state.h
 }
 
 const actions = {
@@ -36,6 +38,30 @@ const actions = {
       { agency, user },
       agency => commit('createSuccess', { agency }),
       () => commit('createFailure')
+    )
+  },
+
+  update ({ commit, state }, agency) {
+    return new Promise((resolve, reject) => {
+      agencyService.update(
+        { agency },
+        () => {
+          commit('updateSuccess')
+          resolve()
+        },
+        () => {
+          commit('updateFailure')
+          reject()
+        }
+      )
+    })
+  },
+
+  history ({ commit, state }, { id }) {
+    agencyService.history(
+      { id },
+      history => commit('historySuccess', { history }),
+      () => commit('historyFailure')
     )
   }
 }
@@ -65,6 +91,22 @@ const mutations = {
 
   createFailure (state) {
     console.log('agency create failure')
+  },
+
+  updateSuccess (state) {
+    console.log('updateSuccess')
+  },
+
+  updateFailure (state) {
+    console.log('agency update failure')
+  },
+
+  historySuccess (state, { history }) {
+    state.h = history
+  },
+
+  historyFailure (state) {
+    console.log('agencies history failure')
   }
 }
 
