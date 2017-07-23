@@ -5,12 +5,13 @@ import agenciesRoutes from '@/router/agencies'
 import leadsRoutes from '@/router/leads'
 import logsRoutes from '@/router/logs'
 import usersRoutes from '@/router/users'
-
 import Login from '@/components/Login'
+import NotFound from '@/components/NotFound'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     ...agenciesRoutes,
     ...leadsRoutes,
@@ -19,11 +20,20 @@ export default new Router({
     {
       path: '/login',
       name: 'Login',
+      meta: { isProtected: false },
       components: { default: Login }
     },
     {
+      path: '/error',
+      name: 'Error',
+      meta: { isProtected: false },
+      components: { default: NotFound }
+    },
+    {
       path: '*',
-      redirect: '/login'
+      redirect: {
+        name: 'Error'
+      }
     }
   ]
 })

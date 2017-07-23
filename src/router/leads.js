@@ -1,28 +1,20 @@
+import { requireAuthentication, componentsLayout } from '@/router/utils'
+
 import LeadsIndex from '@/components/lead/LeadsIndex'
 import LeadsShow from '@/components/lead/LeadsShow'
-
-import AppHeader from '@/components/AppHeader'
 import LeadsNav from '@/components/lead/LeadsNav'
-import AppFooter from '@/components/AppFooter'
-
-function components (main) {
-  return {
-    default: main,
-    header: AppHeader,
-    nav: LeadsNav,
-    footer: AppFooter
-  }
-}
 
 export default [
   {
     path: '/leads',
     name: 'LeadsIndex',
-    component: components(LeadsIndex)
+    component: componentsLayout(LeadsIndex, LeadsNav),
+    beforeEnter: requireAuthentication
   },
   {
     path: '/leads/:id',
     name: 'LeadsShow',
-    components: components(LeadsShow)
+    components: componentsLayout(LeadsShow, LeadsNav),
+    beforeEnter: requireAuthentication
   }
 ]

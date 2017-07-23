@@ -1,46 +1,41 @@
+import { requireAuthentication, componentsLayout } from '@/router/utils'
+
 import AgenciesIndex from '@/components/agency/AgenciesIndex'
 import AgenciesShow from '@/components/agency/AgenciesShow'
 import AgenciesEdit from '@/components/agency/AgenciesEdit'
 import AgenciesNew from '@/components/agency/AgenciesNew'
 import AgenciesSearch from '@/components/agency/AgenciesSearch'
-
-import AppHeader from '@/components/AppHeader'
 import AgenciesNav from '@/components/agency/AgenciesNav'
-import AppFooter from '@/components/AppFooter'
-
-function components (main) {
-  return {
-    default: main,
-    header: AppHeader,
-    nav: AgenciesNav,
-    footer: AppFooter
-  }
-}
 
 export default [
   {
     path: '/agencies',
     name: 'AgenciesIndex',
-    components: components(AgenciesIndex)
+    components: componentsLayout(AgenciesIndex, AgenciesNav),
+    beforeEnter: requireAuthentication
   },
   {
     path: '/agencies/new',
     name: 'AgenciesNew',
-    components: components(AgenciesNew)
+    components: componentsLayout(AgenciesNew, AgenciesNav),
+    beforeEnter: requireAuthentication
   },
   {
     path: '/agencies/search',
     name: 'AgenciesSearch',
-    components: components(AgenciesSearch)
+    components: componentsLayout(AgenciesSearch, AgenciesNav),
+    beforeEnter: requireAuthentication
   },
   {
     path: '/agencies/:id',
     name: 'AgenciesShow',
-    components: components(AgenciesShow)
+    components: componentsLayout(AgenciesShow, AgenciesNav),
+    beforeEnter: requireAuthentication
   },
   {
     path: '/agencies/:id/edit',
     name: 'AgenciesEdit',
-    components: components(AgenciesEdit)
+    components: componentsLayout(AgenciesEdit, AgenciesNav),
+    beforeEnter: requireAuthentication
   }
 ]
