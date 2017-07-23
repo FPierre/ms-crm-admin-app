@@ -87,9 +87,11 @@ export default {
     }
   },
   mounted () {
-    // Use authentication/isAuthenticated instead
+    // TODO: use authentication/isAuthenticated instead
     if (this.$store.state.authentication.token) {
       this.$router.push({ name: 'AgenciesIndex' })
+
+      this.$store.commit('authentication/startAgencyManager')
     }
   },
   methods: {
@@ -107,11 +109,3 @@ export default {
   }
 }
 </script>
-
-<style lang='scss' scoped>
-@import '../../node_modules/bulma/bulma.sass';
-
-body {
-  color: $turquoise !important;
-}
-</style>

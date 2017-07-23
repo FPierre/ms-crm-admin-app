@@ -24,11 +24,12 @@ export default {
 </script>
 
 <style lang='scss'>
-@import 'node_modules/bulma/bulma.sass';
+$green: #37d48c;
+$primary: $green;
+$family-sans-serif: -apple-system, BlinkMacSystemFont, 'Raleway', sans-serif;
+$radius: 2px;
 
-body {
-  font-family: 'Raleway', sans-serif;
-}
+@import '~bulma/bulma.sass';
 
 .view-nav {
   margin-bottom: 2rem;
