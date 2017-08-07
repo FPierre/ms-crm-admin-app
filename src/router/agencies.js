@@ -11,8 +11,8 @@ export default [
   {
     path: '/agencies',
     name: 'AgenciesIndex',
-    components: componentsLayout(AgenciesIndex, AgenciesNav),
-    beforeEnter: requireAuthentication
+    components: componentsLayout(AgenciesIndex, AgenciesNav)
+    // beforeEnter: requireAuthentication
   },
   {
     path: '/agencies/new',
