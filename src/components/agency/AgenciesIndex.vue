@@ -25,7 +25,7 @@
         </div>
       </nav>
 
-      <table class='table is-bordered is-striped'>
+      <table class='table is-bordered is-striped' v-if='agencies.length'>
         <thead>
           <tr>
             <th>Name</th>
