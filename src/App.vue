@@ -1,9 +1,9 @@
 <template>
   <div id='app'>
-    <router-view name='header'></router-view>
+    <router-view class='view-header' name='header'></router-view>
     <router-view class='view-nav' name='nav'></router-view>
-    <router-view></router-view>
-    <router-view name='footer'></router-view>
+    <router-view class='view-main'></router-view>
+    <router-view class='view-footer' name='footer'></router-view>
   </div>
 </template>
 
@@ -31,7 +31,38 @@ $radius: 2px;
 
 @import '~bulma/bulma.sass';
 
+html,
+body {
+  min-height: 100vh;
+}
+
+#app {
+  display: grid;
+  grid-template-areas: 'header'
+                       'nav'
+                       'main'
+                       'footer';
+  grid-template-rows: min-content min-content auto min-content;
+  min-height: 100vh;
+}
+
+.view-header {
+  grid-area: header;
+}
+
 .view-nav {
-  margin-bottom: 2rem;
+  grid-area: nav;
+}
+
+.view-main {
+  grid-area: main;
+}
+
+.view-footer {
+  grid-area: footer;
+}
+
+.view-main {
+  background-color: $white-bis;
 }
 </style>
