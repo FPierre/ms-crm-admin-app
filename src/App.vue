@@ -35,8 +35,10 @@ $white-bis: #f2f4f5;
 $primary: $green;
 $family-sans-serif: -apple-system, BlinkMacSystemFont, 'Raleway', sans-serif;
 $radius: 2px;
+$box-radius: $radius-small;
+$box-shadow: 0 2px 3px rgba($grey, .1), 0 0 0 1px rgba($grey, .1);
 $menu-item-color: $white;
-$menu-item-radius: 0;
+$menu-item-radius: none;
 $menu-list-border-left: 1px solid $grey;
 $menu-label-color: $white;
 
