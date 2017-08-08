@@ -3,11 +3,61 @@
     <div class='container'>
       <div class='box'>
         <nav class='level'>
+          <div class='level-item has-text-centered'>
+            <div>
+              <p class='heading'>Agencies</p>
+              <p class='title'>{{ total }}</p>
+            </div>
+          </div>
+
+          <div class='level-item'>
+            <pagination :page='page' :pages='pages' @navigate='navigate'></pagination>
+          </div>
+        </nav>
+      </div>
+
+      <div class='box'>
+        <nav class='level'>
           <div class='level-left'>
-            <div class='level-item has-text-centered'>
-              <div>
-                <p class='heading'>Agencies</p>
-                <p class='title'>{{ total }}</p>
+            <div class='level-item'>
+              <div class='dropdown'>
+                <div class='dropdown-trigger'>
+                  <button class='button' aria-haspopup='true' aria-controls='dropdown-menu'>
+                    <span>Activities</span>
+                    <span class='icon is-small'>
+                      <i class='fa fa-angle-down' aria-hidden='true'></i>
+                    </span>
+                  </button>
+                </div>
+
+                <div class='dropdown-menu' id='dropdown-menu' role='menu'>
+                  <div class='dropdown-content'>
+                    <a class='dropdown-item'>French fries stand</a>
+                    <a class='dropdown-item'>Cotton candy stand</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class='level-item'>
+              <div class='dropdown'>
+                <div class='dropdown-trigger'>
+                  <button class='button' aria-haspopup='true' aria-controls='dropdown-menu'>
+                    <span>Commercial status</span>
+                    <span class='icon is-small'>
+                      <i class='fa fa-angle-down' aria-hidden='true'></i>
+                    </span>
+                  </button>
+                </div>
+
+                <div class='dropdown-menu' id='dropdown-menu' role='menu'>
+                  <div class='dropdown-content'>
+                    <a class='dropdown-item'>Customer</a>
+                    <a class='dropdown-item'>Prospect</a>
+                    <a class='dropdown-item'>Old customer</a>
+                    <a class='dropdown-item'>Inactive</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -23,10 +73,6 @@
                   <button class='button' @click='search'>Search</button>
                 </p>
               </div>
-            </div>
-
-            <div class='level-item'>
-              <pagination :page='page' :pages='pages' @navigate='navigate'></pagination>
             </div>
           </div>
         </nav>
