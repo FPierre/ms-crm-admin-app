@@ -79,7 +79,7 @@
       </div>
 
       <div class='box' v-if='agencies.length'>
-        <table class='table is-bordered is-striped'>
+        <table class='table is-striped'>
           <thead>
             <tr>
               <th>Name</th>
@@ -167,5 +167,10 @@ export default {
 <style scoped>
 .agencies-index-component {
   padding: 3rem 0;
+}
+
+.table {
+  margin-bottom: 0;
+  width: 100%;
 }
 </style>
