@@ -11,6 +11,8 @@ import store from '@/store'
 import router from '@/router'
 // import auth from '@/auth'
 
+import '@/directives/dropdown'
+
 Vue
   .use(Vuex)
   .use(VueResource)

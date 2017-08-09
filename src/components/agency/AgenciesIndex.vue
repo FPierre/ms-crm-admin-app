@@ -20,7 +20,7 @@
         <nav class='level'>
           <div class='level-left'>
             <div class='level-item'>
-              <div class='dropdown'>
+              <div class='dropdown' v-dropdown-click>
                 <div class='dropdown-trigger'>
                   <button class='button' aria-haspopup='true' aria-controls='dropdown-menu'>
                     <span>Activities</span>
@@ -40,7 +40,7 @@
             </div>
 
             <div class='level-item'>
-              <div class='dropdown'>
+              <div class='dropdown' v-dropdown-click>
                 <div class='dropdown-trigger'>
                   <button class='button' aria-haspopup='true' aria-controls='dropdown-menu'>
                     <span>Commercial status</span>
