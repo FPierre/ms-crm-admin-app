@@ -55,5 +55,10 @@
 
 .app-sidebar-component {
   background-color: $black-ter;
+  padding-top: 1rem;
+
+  .menu-label {
+    padding-left: 1rem;
+  }
 }
 </style>
