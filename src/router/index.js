@@ -21,13 +21,13 @@ export default new Router({
       path: '/login',
       name: 'Login',
       meta: { isProtected: false },
-      components: { default: Login }
+      component: Login
     },
     {
       path: '/error',
       name: 'Error',
-      meta: { isProtected: false },
-      components: { default: NotFound }
+      meta: { isProtected: false, simpleLayout: true },
+      component: NotFound
     },
     {
       path: '*',

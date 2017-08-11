@@ -18,10 +18,10 @@ export function requireAuthentication (to, from, next) {
   }
 }
 
-export function componentsLayout (main, nav, header = null) {
+export function componentsLayout (main, header = null, sidebar = null) {
   return {
     default: main,
-    header: header || require('@/components/AppHeader'),
-    nav
+    header,
+    sidebar
   }
 }

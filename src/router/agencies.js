@@ -5,37 +5,39 @@ import AgenciesShow from '@/components/agency/AgenciesShow'
 import AgenciesEdit from '@/components/agency/AgenciesEdit'
 import AgenciesNew from '@/components/agency/AgenciesNew'
 import AgenciesSearch from '@/components/agency/AgenciesSearch'
-import AgenciesNav from '@/components/agency/AgenciesNav'
+
+import AppHeader from '@/components/AppHeader'
+import AppSidebar from '@/components/AppSidebar'
 
 export default [
   {
     path: '/agencies',
     name: 'AgenciesIndex',
-    components: componentsLayout(AgenciesIndex, AgenciesNav)
+    components: componentsLayout(AgenciesIndex, AppHeader, AppSidebar)
     // beforeEnter: requireAuthentication
   },
   {
     path: '/agencies/new',
     name: 'AgenciesNew',
-    components: componentsLayout(AgenciesNew, AgenciesNav),
+    components: componentsLayout(AgenciesNew, AppHeader, AppSidebar),
     beforeEnter: requireAuthentication
   },
   {
     path: '/agencies/search',
     name: 'AgenciesSearch',
-    components: componentsLayout(AgenciesSearch, AgenciesNav),
+    components: componentsLayout(AgenciesSearch, AppHeader, AppSidebar),
     beforeEnter: requireAuthentication
   },
   {
     path: '/agencies/:id',
     name: 'AgenciesShow',
-    components: componentsLayout(AgenciesShow, AgenciesNav),
+    components: componentsLayout(AgenciesShow, AppHeader, AppSidebar),
     beforeEnter: requireAuthentication
   },
   {
     path: '/agencies/:id/edit',
     name: 'AgenciesEdit',
-    components: componentsLayout(AgenciesEdit, AgenciesNav),
+    components: componentsLayout(AgenciesEdit, AppHeader, AppSidebar),
     beforeEnter: requireAuthentication
   }
 ]

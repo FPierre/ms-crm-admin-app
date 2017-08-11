@@ -1,14 +1,12 @@
 <template>
-  <div id='app'>
+  <div id='app' :class='[$route.meta.simpleLayout ? "" : "grid-layout"]'>
     <router-view class='view-header' name='header'></router-view>
-    <app-sidebar class='view-sidebar'></app-sidebar>
-    <!-- <router-view class='view-nav' name='nav'></router-view> -->
+    <router-view class='view-sidebar' name='sidebar'></router-view>
     <router-view class='view-main'></router-view>
   </div>
 </template>
 
 <script>
-import AppSidebar from '@/components/AppSidebar'
 import { mapMutations } from 'vuex'
 
 export default {
@@ -20,10 +18,7 @@ export default {
       this.$store.commit('authentication/storeToken', token)
     }
   },
-  methods: mapMutations(['authentication/storeToken']),
-  components: {
-    AppSidebar
-  }
+  methods: mapMutations(['authentication/storeToken'])
 }
 </script>
 
@@ -49,7 +44,7 @@ body {
   min-height: 100vh;
 }
 
-#app {
+.grid-layout {
   display: grid;
   grid-template-areas: 'header header'
                        'sidebar main';
@@ -67,10 +62,7 @@ body {
 }
 
 .view-main {
-  grid-area: main;
-}
-
-.view-main {
   background-color: $white-bis;
+  grid-area: main;
 }
 </style>
